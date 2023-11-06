@@ -13,4 +13,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderLine::class);
     }
+
+    public function getTotalQtyAttribute()
+    {
+        return $this->orderLines->sum('qty');
+    }
 }
