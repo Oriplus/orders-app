@@ -37,6 +37,9 @@ npm run build
 Una vez levantado el proyecto, se puede ejecutar el job:
 
 ```
+#iniciar el worker
+php artisan queue:work
+
 php artisan command:totalCost
 ```
 
