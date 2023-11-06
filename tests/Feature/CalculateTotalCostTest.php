@@ -33,14 +33,14 @@ class CalculateTotalCostTest extends TestCase
         ]);
     }
 
-    public function shouldDispatchesCalculateTotalCostJob(): void
+    public function test_dispatches_calculate_total_cost_job(): void
     {
         Queue::fake();
         CalculateTotalCost::dispatch();
         Queue::assertPushed(CalculateTotalCost::class);
     }
 
-    public function shouldCalculatesTotalCostCorrectly(): void
+    public function test_calculates_total_cost_correctly(): void
     {
         Log::shouldReceive('info')
             ->once()

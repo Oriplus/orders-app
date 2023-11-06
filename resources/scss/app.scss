@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(to right, #e1ecf8, #d9e8f8, #d1e4f8, #c8e1f8, #bfddf8);
+}
