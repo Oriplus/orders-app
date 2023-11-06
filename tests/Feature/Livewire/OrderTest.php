@@ -3,6 +3,7 @@
 namespace Tests\Feature\Livewire;
 
 use App\Http\Livewire\Orders\Index;
+use App\Models\Order;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
@@ -22,14 +23,14 @@ class OrderTest extends TestCase
 
     public function test_can_paginate_orders()
     {
-        Index::factory()->count(30)->create();
+        Order::factory()->count(30)->create();
 
         Livewire::test('orders.index')
             ->assertStatus(200)
             ->assertViewHas('orders', function ($orders) {
                 return $orders->count() === 10;
             })
-            ->set('page', 2)
+            ->call('nextPage')
             ->assertViewHas('orders', function ($orders) {
                 return $orders->count() === 10 && $orders->first()->id === 11;
             });
